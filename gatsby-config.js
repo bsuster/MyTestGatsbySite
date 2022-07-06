@@ -14,5 +14,6 @@ module.exports = {
       },
     },
     "gatsby-plugin-mdx",
+    "@parcel/namer-default",
   ],
 }

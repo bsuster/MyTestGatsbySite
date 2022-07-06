@@ -6,13 +6,13 @@ const BlogPage = ({ data }) => {
     return (
         <Layout pageTitle="My Blog Posts">
             <ul>
-                {
-                    data.allFile.nodes.map(node => (
+                {/* {
+                    data.allMdx.nodes.map(node => (
                         <li key={node.name}>
                             {node.name}
                         </li>
                     ))
-                }
+                } */}
             </ul>
         </Layout>
     )
@@ -20,13 +20,17 @@ const BlogPage = ({ data }) => {
 
 export const query = graphql`
     query MyQuery {
-        allFile(filter: {sourceInstanceName: {eq: "blog"}}) {
+        allMdx(sort: {fields: frontmatter___date}) {
             nodes {
-                sourceInstanceName
-                name
+                frontmatter {
+                    title
+                    date(formatString: "MMMM DD, YY")
+                }
+                id
+                body
             }
         }
-    }  
+    }    
 `
 
 export default BlogPage
