@@ -15,5 +15,6 @@ module.exports = {
     },
     "gatsby-plugin-mdx",
     "@parcel/namer-default",
+    "gatsby-transformer-sharp"
   ],
 }
